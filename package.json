@@ -1,0 +1,36 @@
+{
+  "name": "fxapis-nextjs-starter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A small working Next.js app on fxapis, the hosted MetaTrader 5 REST API: connect an MT5 account, view its positions, and place a confirmed demo trade. API key stays server-side.",
+  "license": "MIT",
+  "author": "El Wizard <mago@elwizard.net>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FXapis/fxapis-nextjs-starter.git"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "audit:prod": "npm audit --omit=dev --audit-level high"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "fxapis": "github:FXapis/fxapis-typescript#v0.1.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.0",
+    "tailwindcss": "^4",
+    "typescript": "5.9.3"
+  }
+}

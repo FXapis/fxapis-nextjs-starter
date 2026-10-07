@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install
+      - run: npm run lint
+      - name: build
+        env:
+          # A syntactically shaped key is enough to build -- nothing here calls
+          # the API at build time, and no page is statically prerendered against
+          # live data (see "Why every page is dynamic" in the README).
+          FXAPIS_API_KEY: fx_test_ci_placeholder_0000000000000000
+        run: npm run build
