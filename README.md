@@ -57,9 +57,6 @@ Open [localhost:3000](http://localhost:3000). With no account connected yet, it 
 > [!WARNING]
 > **Test keys reach real brokers.** An `fx_test_` key is a label for your configuration, not a sandbox — there is no simulated market at fxapis. Use a broker demo account for everything here. Create a key at [fxapis.com/dashboard/keys](https://fxapis.com/dashboard/keys) with `accounts:read`, `accounts:write`, `trading:read` and `trading:execute`.
 
-> [!NOTE]
-> `fxapis` is not yet published to npm, so `package.json` installs it from [`FXapis/fxapis-typescript`](https://github.com/FXapis/fxapis-typescript)'s tagged release directly — `npm install` above already does the right thing. Once it's on npm, only that one line changes.
-
 ## How it's built
 
 - **The API key never leaves the server.** [`src/lib/fxapis-client.ts`](src/lib/fxapis-client.ts) builds the one `Fxapis` client from `process.env.FXAPIS_API_KEY`, and starts with `import "server-only"` — importing it from a Client Component is a build error, not a runtime surprise.
