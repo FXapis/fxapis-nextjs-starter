@@ -5,9 +5,10 @@ import { useRouter } from "next/navigation";
 
 /**
  * Re-fetches the page every 2.5s while the account is between states (e.g.
- * `starting` -> `ready`), and stops on its own once it isn't -- there is no
- * event webhook to tell us the moment it settles, so this polls instead,
- * exactly as the "Poll lifecycle state" step in the fxapis docs describes.
+ * `starting` -> `ready`), and stops on its own once it isn't, exactly as the
+ * "Poll lifecycle state" step in the fxapis docs describes. Polling works on
+ * localhost; a deployed app can take fxapis webhooks instead (README, "Taking
+ * this further").
  */
 export function LiveRefresh({ active }: { active: boolean }) {
   const router = useRouter();

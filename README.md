@@ -102,7 +102,7 @@ src/
 
 - **A real database.** Swap `src/lib/store.ts` for your ORM of choice, and it becomes multi-account, multi-user — the rest of the app barely changes, since every other file already takes the account id as a value, not a global.
 - **Auth.** There's none here on purpose — this starter is single-tenant, "your own app with your own key." Put [better-auth](https://www.better-auth.com), [Auth.js](https://authjs.dev) or your own session layer in front of `/dashboard`, same as any other Next.js app.
-- **Live updates without polling.** `live-refresh.tsx` polls every 2.5s while an account is connecting, because fxapis has no event webhooks yet (see [Limits](https://docs.fxapis.com/guides/mcp#limits-of-the-mcp-server-today)). When that ships, this is the one file that changes.
+- **Live updates without polling.** `live-refresh.tsx` polls every 2.5s while an account is connecting, which works anywhere, including `localhost`. Once the app is deployed, add a route that receives fxapis [webhooks](https://docs.fxapis.com/guides/webhooks) — `account.state_changed`, `order.filled`, `position.closed` — checks each with `verifyWebhook()` from the SDK, and pushes the change to the browser (server-sent events, say). `live-refresh.tsx` is the one file that goes.
 - **More of the API.** Pending orders, modifying a position's stop loss/take profit, multi-account orders, order and deal history — all covered by the SDK; see [`fxapis-typescript`](https://github.com/FXapis/fxapis-typescript#methods) for the full method list, or copy a pattern from [`fxapis-examples`](https://github.com/FXapis/fxapis-examples).
 
 ## Related fxapis repositories
