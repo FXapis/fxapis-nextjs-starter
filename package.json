@@ -20,7 +20,7 @@
     "next": "16.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "fxapis": "^0.1.4",
+    "fxapis": "^0.2.1",
     "server-only": "^0.0.1"
   },
   "devDependencies": {
